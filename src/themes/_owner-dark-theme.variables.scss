@@ -1,0 +1,53 @@
+@import 'variables';
+
+$ownerDarkTheme: define-palette('owner-dark-theme',
+    map-get($darkColors, primary),
+    map-get($darkColors, secondary),
+    map-get($darkColors, secondary-hover),
+    map-get($darkColors, accent),
+    map-get($darkColors, background),
+    map-get($darkColors, color),
+    map-get($darkColors, border)
+);
+
+.owner-dark-theme {
+    a, a:hover, a:focus {
+        color: map-get($darkColors, color);
+    }
+
+    h1, h2, h3 {
+        color: map-get($darkColors, color);
+    }
+
+    .logo, .logo:hover {
+        color: map-get($darkColors, color);
+    }
+
+    .simple-vertical-linear {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 100%);
+        // background-color: #222531;
+    }
+
+    .simple-circle {
+        background-color: #222531;
+
+        &:hover {
+            box-shadow: 0 0 9px 0 #FFFFFF40;
+        }
+    }
+
+    .button-default {
+        color: map-get($darkColors, 'color');
+        box-shadow: 0 0 12px 0 #FFFFFF14 inset;
+        background: linear-gradient(0deg, rgba(147, 130, 255, 0.01), rgba(147, 130, 255, 0.01)), linear-gradient(180deg, rgba(243, 238, 255, 0) 0%, rgba(243, 238, 255, 0.04) 100%);
+        border-color: #F3EEFF14;
+
+        &:hover {
+            box-shadow: 0 0 25px 0 #FFFFFF1F inset;
+        }
+    }
+
+    .swiper-pagination-bullet {
+        background: #D9D9D933;
+    }
+}

@@ -1,0 +1,7 @@
+{
+  "baseUrl": "http://localhost:9080/api",
+  "timeoutRequest": 30000,
+  "logging": true,
+  "storageVersion": "0.0.0",
+  "serverBaseUrl": "http://localhost:9080"
+}

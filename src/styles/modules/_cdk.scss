@@ -1,0 +1,21 @@
+@import '/node_modules/swiper/swiper-bundle.min.css';
+@import "/node_modules/ng-zorro-antd/ng-zorro-antd.min.css";
+//@import '../../../../node_modules/@angular/cdk/a11y';
+//@import '../../../../node_modules/@angular/cdk/overlay';
+//@import '../../../../node_modules/@angular/cdk/text-field';
+
+//@import '../../styles/variables';
+
+@mixin owner-cdk() {
+    //@include cdk-a11y();
+    //@include cdk-overlay();
+    //@include cdk-text-field();
+    //
+    //.cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+    //    &:not(.cdk-overlay-transparent-backdrop):not(.y-overlay-transparent-backdrop) {
+    //        background-color: $charcoalBlack;
+    //        opacity: 0.7;
+    //    }
+    //}
+
+}

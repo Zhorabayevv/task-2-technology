@@ -1,0 +1,17 @@
+@import '/src/styles/variables';
+
+:host {
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        padding: calc($header-height-desktop) 0 0;
+        height: calc(100% - $header-height-desktop);
+
+        @media (max-width: $desktop) {
+            padding: calc($header-height) 0 0;
+            height: calc(100% - $header-height);
+        }
+    }
+}

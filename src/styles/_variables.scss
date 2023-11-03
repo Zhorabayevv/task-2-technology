@@ -1,0 +1,56 @@
+$base-gutter: 8px;
+
+// typography
+$line-height: 1.125;
+$regular: normal;
+$bold: bold;
+$bolder: bolder;
+
+
+$header-height: 70px;
+$header-height-desktop: $header-height;
+$header-padding: 25px;
+
+
+$swift-duration: .5s;
+$swift-timing-function: cubic-bezier(0.66, 0, 0.34, 1.0);
+$quick-duration: .25s;
+
+$phone: 480px;
+$tablet: 768px;
+$desktop: 1280px;
+
+$container-padding: 20px;
+
+// Fonts
+$owner-font: (
+    name: 'Inter',
+    family: ('Inter', sans-serif),
+    icons: 'OwnerIcons',
+    local-path: '/assets/fonts',
+);
+
+// Colors
+$primary-color: #A36DEA;
+
+$lightColors: (
+    background: #F2F3F5,
+    color: #000000,
+    primary: #000,
+    secondary: #616162,
+    secondary-hover: #4A4A4A,
+    accent: #000,
+    interactive: rgba(0, 0, 0, 0.07),
+    border: #DCDCDE,
+);
+
+$darkColors: (
+    background: #151720,
+    color: #FFFFFF,
+    primary: #fff,
+    secondary: #A5A5A5,
+    secondary-hover: #BBB,
+    accent: #fff,
+    interactive: rgb(33, 35, 43, 0.7),
+    border: #2C2E36,
+);

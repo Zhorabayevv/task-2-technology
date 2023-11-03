@@ -1,0 +1,52 @@
+stages:
+    - install
+    - dockerize
+    - dockerstart
+
+before_script:
+    - export APP_NAME=`awk -F "\"" '/name/{print $4; exit}' ./package.json`
+    - export VERSION=`awk -F "\"" '/version/{print $4; exit}' ./package.json`
+    - export BRANCH_NAME=`echo $CI_COMMIT_REF_NAME | grep -E 'bugfix|feature|dev|master' | cut -f2 -d"/" | sed s/.*/'&'/`
+
+install:
+    stage: install
+    tags:
+        - docker
+    image: node:18.12.1-slim
+    cache:
+        key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
+        paths:
+            - dist/
+    script:
+        - npm i && npm run prod-build:ssr
+
+dockerize:
+    stage: dockerize
+    tags:
+        - docker
+    dependencies:
+        - install
+    cache:
+        key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
+        paths:
+            - dist/
+        policy: pull
+    script:
+        - docker build . --no-cache --force-rm=true -t $APP_NAME:$VERSION-$BRANCH_NAME
+
+dockerstart:
+    stage: dockerstart
+    tags:
+        - docker
+    dependencies:
+        - dockerize
+    script:
+        - (if [ "$(docker ps | grep ${APP_NAME})" ]; then docker stop $APP_NAME; fi);
+        - (if [ "$(docker ps -a | grep ${APP_NAME})" ]; then docker rm $APP_NAME; fi);
+        - docker run -d
+            -v /data/owner/ui/config:/usr/share/nginx/html/assets/data:ro
+            -v /data/owner/ui/logs:/var/log/nginx
+            -p 4000:4000
+            --name=$APP_NAME
+            --restart=always
+            $APP_NAME:$VERSION-$BRANCH_NAME

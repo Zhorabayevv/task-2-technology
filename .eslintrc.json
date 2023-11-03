@@ -1,0 +1,218 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "rules": {
+        "no-console": [
+          "error"
+        ],
+        "quotes": [
+          "error",
+          "single"
+        ],
+        "semi": "off",
+        "comma-dangle": [
+          "error",
+          "only-multiline"
+        ],
+        "padding-line-between-statements": [
+          "warn",
+          {
+            "blankLine": "always",
+            "prev": "*",
+            "next": "return"
+          },
+          {
+            "blankLine": "always",
+            "prev": "import",
+            "next": "*"
+          },
+          {
+            "blankLine": "any",
+            "prev": "import",
+            "next": "import"
+          },
+          {
+            "blankLine": "always",
+            "prev": [
+              "const",
+              "let",
+              "var"
+            ],
+            "next": "*"
+          },
+          {
+            "blankLine": "never",
+            "prev": [
+              "const",
+              "let",
+              "var"
+            ],
+            "next": [
+              "const",
+              "let",
+              "var"
+            ]
+          },
+          {
+            "blankLine": "always",
+            "prev": "expression",
+            "next": "*"
+          },
+          {
+            "blankLine": "never",
+            "prev": "expression",
+            "next": "expression"
+          },
+          {
+            "blankLine": "always",
+            "prev": [
+              "multiline-expression",
+              "block-like",
+              "block"
+            ],
+            "next": "*"
+          },
+          {
+            "blankLine": "always",
+            "prev": "*",
+            "next": [
+              "multiline-expression",
+              "block-like",
+              "block"
+            ]
+          }
+        ],
+        "@typescript-eslint/semi": "error",
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "owner",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "owner",
+            "style": "kebab-case"
+          }
+        ],
+        "@typescript-eslint/explicit-member-accessibility": "error",
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "selector": "default",
+            "format": [
+              "camelCase"
+            ]
+          },
+          {
+            "selector": "variable",
+            "modifiers": [
+              "global"
+            ],
+            "format": [
+              "UPPER_CASE"
+            ]
+          },
+          {
+            "selector": "typeLike",
+            "format": [
+              "UPPER_CASE",
+              "StrictPascalCase"
+            ]
+          },
+          {
+            "selector": "interface",
+            "format": [
+              "PascalCase"
+            ],
+            "prefix": [
+              "I"
+            ]
+          },
+          {
+            "selector": "memberLike",
+            "modifiers": [
+              "private"
+            ],
+            "format": [
+              "camelCase"
+            ],
+            "leadingUnderscore": "require"
+          },
+          {
+            "selector": "memberLike",
+            "modifiers": [
+              "protected"
+            ],
+            "format": [
+              "camelCase"
+            ],
+            "leadingUnderscore": "allow"
+          },
+          {
+            "selector": "enumMember",
+            "format": [
+              "UPPER_CASE",
+              "StrictPascalCase"
+            ]
+          },
+          {
+            "selector": "enum",
+            "format": [
+              "PascalCase"
+            ]
+          },
+          {
+            "selector": "parameter",
+            "modifiers": [
+              "unused"
+            ],
+            "format": null,
+            "custom": {
+              "regex": "^(_|_\\$[0-9]+|args)$",
+              "match": true
+            }
+          }
+        ],
+        "@typescript-eslint/explicit-function-return-type": "error",
+        "@typescript-eslint/no-explicit-any": "off",
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": [
+          "warn",
+          // or "error"
+          {
+            "argsIgnorePattern": "^(_|_\\$[0-9]+|args)$",
+            "varsIgnorePattern": "^(_|_\\$[0-9]+|args)$",
+            "caughtErrorsIgnorePattern": "^(_|_\\$[0-9]+|args)$"
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {}
+    }
+  ]
+}

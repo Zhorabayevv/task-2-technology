@@ -1,0 +1,9 @@
+@mixin owner-hamburger-theme($theme) {
+    $color: map-get($theme, color);
+
+    .hamburger {
+        .line {
+            background-color: $color;
+        }
+    }
+}

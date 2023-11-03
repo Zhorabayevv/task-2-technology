@@ -1,0 +1,20 @@
+@import './modules/cdk';
+@import 'variables';
+@import './modules/typography/typography';
+@import 'theming';
+@import 'owner-dark-theme.variables';
+@import 'owner-light-theme.variables';
+
+
+@mixin owner-core($props: $owner-font) {
+    $props: map-merge($owner-font, $props);
+
+    body {
+        font-family: map-get($props, family);
+        line-height: $line-height;
+    }
+
+    @include owner-cdk();
+    @include owner-base-typography($props);
+    //@include helpers();
+}

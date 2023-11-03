@@ -1,0 +1,25 @@
+@import 'variables';
+@import './modules/typography/typography';
+@import '../app/shared/components/hamburger/hamburger-theme';
+@import '../app/shared/components/header/header-theme';
+
+@function define-palette($theme-name, $primary, $secondary, $secondary-hover, $accent, $background, $color, $border) {
+    @return (
+        name: $theme-name,
+        primary: $primary,
+        secondary: $secondary,
+        secondary-hover: $secondary-hover,
+        accent: $accent,
+        background: $background,
+        color: $color,
+        border: $border,
+    )
+}
+
+@mixin owner-theme($theme) {
+    .#{map-get($theme, name)} {
+        @include theme-typography($theme);
+        @include owner-hamburger-theme($theme);
+        @include owner-header-theme($theme);
+    }
+}

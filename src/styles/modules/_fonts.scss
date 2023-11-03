@@ -1,0 +1,13 @@
+@mixin createFont($fontName: 'sans-serif', $folder: '', $fontCharFile: '', $weight: normal, $style: normal) {
+    @font-face {
+        font-family: $fontName;
+        //src: url('#{$folder}/#{$fontCharFile}.otf');
+        src:
+            url('#{$folder}/#{$fontCharFile}.ttf') format('truetype');
+        //    url('#{$folder}/#{$fontCharFile}.woff2') format('woff2'),
+        //    url('#{$folder}/#{$fontCharFile}.woff') format('woff'),
+
+        font-weight: $weight;
+        font-style: $style;
+    }
+}

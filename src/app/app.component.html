@@ -1,0 +1,7 @@
+<owner-turn-over *ngIf="orientationChangeRequired; else site"></owner-turn-over>
+<ng-template #site>
+  <owner-header></owner-header>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</ng-template>

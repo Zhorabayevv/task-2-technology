@@ -1,0 +1,27 @@
+openapi: 3.0.3
+info:
+  title: node - OpenAPI 3.0
+  version: 1.0.0
+paths:
+  /node-api/set-theme:
+    get:
+      tags:
+        - ThemeApi
+      operationId: setTheme
+      parameters:
+        - name: theme
+          in: query
+          schema:
+            $ref: '#/components/schemas/ThemeType'
+          description: 'owner-light-theme'
+      responses:
+        200:
+          description: Successful operation
+
+components:
+  schemas:
+    ThemeType:
+      type: string
+      enum:
+        - owner-dark-theme
+        - owner-light-theme

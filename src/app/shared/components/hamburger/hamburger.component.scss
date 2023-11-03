@@ -1,0 +1,52 @@
+@import '/src/styles/variables';
+
+$hamburger-width: 24px;
+$hamburger-width-short-line: 15px;
+
+:host {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+
+    .hamburger {
+        width: $hamburger-width;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        height: 2px * 3 + 6px * 2; // 3px height of one line and 6px space between lines
+        justify-content: space-between;
+
+        &__top-line {
+            width: $hamburger-width-short-line;
+            margin-left: calc($hamburger-width - $hamburger-width-short-line);
+        }
+
+        &__middle-line {
+            width: 100%;
+        }
+
+        &__bottom-line {
+            width: $hamburger-width-short-line;
+            margin-left: 0;
+        }
+
+        .line {
+            height: 2px;
+            transition: margin $swift-duration $swift-timing-function, opacity $swift-duration $swift-timing-function;
+        }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            .hamburger {
+                &__top-line {
+                    margin-left: 0;
+                }
+
+                &__bottom-line {
+                    margin-left: calc($hamburger-width - $hamburger-width-short-line);
+                }
+            }
+        }
+    }
+}
